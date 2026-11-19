@@ -67,7 +67,7 @@ def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     tok = AutoTokenizer.from_pretrained(str(qwen3_path()))
     model = AutoModelForCausalLM.from_pretrained(
-        str(qwen3_path()), dtype=torch.float16 if device == "cuda" else torch.float32
+        str(qwen3_path()), torch_dtype=torch.float16 if device == "cuda" else torch.float32
     ).to(device).eval()
 
     samples, meta = load_clean_val(args.n)

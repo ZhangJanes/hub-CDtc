@@ -108,7 +108,7 @@ def main():
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
 
-    base = AutoModelForCausalLM.from_pretrained(str(qwen3_path()), dtype=dtype)
+    base = AutoModelForCausalLM.from_pretrained(str(qwen3_path()), torch_dtype=dtype)
 
     if args.full_ft:
         model = base.to(device)                     # 所有参数默认 requires_grad=True

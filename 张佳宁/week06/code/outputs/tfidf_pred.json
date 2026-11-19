@@ -13,6 +13,7 @@
     "unparsed": 0,
     "unparsed_rate": 0.0,
     "acc": 0.512,
+    "acc_incl_unparsed": 0.512,
     "macro_f1": 0.4721,
     "weighted_f1": 0.5123,
     "per_class_recall": {
@@ -290,7 +291,7 @@
       ]
     ],
     "method": "tfidf_svm",
-    "fit_seconds": 19.7,
+    "fit_seconds": 4.2,
     "ngram": "1,2",
     "C": 1.0
   }

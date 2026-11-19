@@ -56,12 +56,12 @@ def main():
     if (ckpt_dir / "adapter_config.json").exists():
         # LoRA：先载基座，再挂 adapter
         from peft import PeftModel
-        base = AutoModelForCausalLM.from_pretrained(str(qwen3_path()), dtype=torch.float16 if device == "cuda" else torch.float32)
+        base = AutoModelForCausalLM.from_pretrained(str(qwen3_path()), torch_dtype=torch.float16 if device == "cuda" else torch.float32)
         model = PeftModel.from_pretrained(base, str(ckpt_dir)).to(device).eval()
         kind = "lora"
     else:
         # 全量微调：目录里就是完整权重，直接 from_pretrained（约 1.2 GB）
-        model = AutoModelForCausalLM.from_pretrained(str(ckpt_dir), dtype=torch.float16 if device == "cuda" else torch.float32).to(device).eval()
+        model = AutoModelForCausalLM.from_pretrained(str(ckpt_dir), torch_dtype=torch.float16 if device == "cuda" else torch.float32).to(device).eval()
         kind = "full_ft"
     print(f"[eval] 加载方式：{kind}（{ckpt_dir}）", flush=True)
 
