@@ -171,8 +171,8 @@ def main():
     labels = label_scheme["labels"]
     id2label = label_scheme["id2label"]
     print(f"标签体系：joint，{len(labels)} 个标签（{schema_stats_str(schema)}）")
-
-    tokenizer = BertTokenizer.from_pretrained(str(args.bert_path))
+    from transformers import BertTokenizerFast
+    tokenizer = BertTokenizerFast.from_pretrained(str(args.bert_path))
     train_rows = load_extract_split("train", data_dir)
     dev_rows = load_extract_split("dev", data_dir)
 

@@ -1,3 +1,11 @@
+'''
+Author: zhangjianing 1026597665@qq.com
+Date: 2026-11-25 21:29:27
+LastEditors: zhangjianing 1026597665@qq.com
+LastEditTime: 2026-11-25 21:50:45
+FilePath: \hub-CDtc\张佳宁\week07\code\common\model_paths.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 """
 预训练模型路径解析（同时兼容「母版」与「交付副本」两套目录树）
 
@@ -15,7 +23,7 @@
 
 使用方式：
   from model_paths import resolve_model_path, BERT_MODEL_DIR
-  BERT_PATH = resolve_model_path(BERT_MODEL_DIR)   # → .../pretrain_models/bert-base-chinese
+  BERT_PATH = resolve_model_path(BERT_MODEL_DIR)   # → .../pretrain_models/chinese-roberta-wwm-ext
 """
 
 import os
@@ -24,7 +32,7 @@ os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")   # Windows: torch 与 num
 from pathlib import Path
 
 # ── 模型目录名（与 pretrain_models/ 下的实际目录一致）──────────────────────────
-BERT_MODEL_DIR = "bert-base-chinese"   # 本项目判别式链路全部使用 BERT
+BERT_MODEL_DIR = "chinese-roberta-wwm-ext"   # 本项目判别式链路全部使用 BERT
 
 PRETRAIN_DIR_NAME = "pretrain_models"
 
