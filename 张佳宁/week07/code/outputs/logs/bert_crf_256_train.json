@@ -1,19 +1,11 @@
 {
   "method": "bert_crf_256",
   "argv": [
-    "bert/train.py",
-    "--decoder",
-    "crf",
-    "--max_len",
-    "256",
-    "--epochs",
-    "3",
-    "--run_name",
-    "bert_crf_256"
+    "bert/train.py"
   ],
   "args": {
     "decoder": "crf",
-    "bert_path": "pretrain_models/bert-base-chinese",
+    "bert_path": "D:\\1aSTUDY\\AI_Agent\\pretrain_models\\chinese-roberta-wwm-ext",
     "bert_layers": 0,
     "max_len": 256,
     "epochs": 3,
@@ -35,79 +27,79 @@
     "data_dir": ""
   },
   "env": {
-    "python": "3.12.7",
-    "platform": "Windows-11-10.0.26200-SP0",
-    "time": "2026-11-18 17:52:36",
-    "torch": "2.6.0+cu126",
+    "python": "3.12.16",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "time": "2026-11-26 21:35:48",
+    "torch": "2.14.1+cu126",
     "cuda_available": true,
-    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
-    "transformers": "5.5.3"
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+    "transformers": "4.55.0"
   },
   "params": 102404728,
   "log_every": 50,
   "epochs": [
     {
       "epoch": 1,
-      "train_loss": 203.651066,
-      "elapsed_s": 1158.4,
+      "train_loss": 223.477513,
+      "elapsed_s": 78.1,
       "val": {
-        "inner_loss": 66.16054768032498,
-        "inner_span_f1": 0.4187466331477824,
-        "dev_span_f1_monitor": 0.43581757508342606
+        "inner_loss": 75.03634474012587,
+        "inner_span_f1": 0.41916370407990516,
+        "dev_span_f1_monitor": 0.425747806785752
       },
       "best_so_far": -1.0
     },
     {
       "epoch": 2,
-      "train_loss": 53.016491,
-      "elapsed_s": 791.4,
+      "train_loss": 55.862313,
+      "elapsed_s": 78.1,
       "val": {
-        "inner_loss": 41.12490759955512,
-        "inner_span_f1": 0.6106801909307876,
-        "dev_span_f1_monitor": 0.6239585261988521
+        "inner_loss": 42.89818424648709,
+        "inner_span_f1": 0.5936962750716334,
+        "dev_span_f1_monitor": 0.6187874988806304
       },
-      "best_so_far": 0.418747
+      "best_so_far": 0.419164
     },
     {
       "epoch": 3,
-      "train_loss": 37.894691,
-      "elapsed_s": 787.3,
+      "train_loss": 38.864223,
+      "elapsed_s": 76.8,
       "val": {
-        "inner_loss": 36.07461675008138,
-        "inner_span_f1": 0.6408789885611077,
-        "dev_span_f1_monitor": 0.6581427904806346
+        "inner_loss": 36.94663545820448,
+        "inner_span_f1": 0.636350343617488,
+        "dev_span_f1_monitor": 0.661674732901105
       },
-      "best_so_far": 0.61068
+      "best_so_far": 0.593696
     }
   ],
-  "total_elapsed_s": 2742.5,
+  "total_elapsed_s": 233.9,
   "finished": true,
   "best_epoch": 3,
-  "best_inner_val_span_f1": 0.640879,
+  "best_inner_val_span_f1": 0.63635,
   "dev_metrics": {
-    "trigger": 0.832,
-    "argument": 0.5815,
-    "event_exact": 0.1697
+    "trigger": 0.8096,
+    "argument": 0.5838,
+    "event_exact": 0.1729
   },
-  "inference_latency_ms": 74.28,
-  "peak_gpu_mb": 1843.0,
+  "inference_latency_ms": 5.06,
+  "peak_gpu_mb": 1848.9,
   "illegal_dev": {
     "illegal_start": 0,
-    "illegal_transition": 1242,
+    "illegal_transition": 1349,
     "total_seqs": 930,
-    "illegal_seqs": 581,
-    "total_illegal": 1242,
-    "illegal_seq_rate": 0.6247,
-    "illegal_per_seq": 1.335
+    "illegal_seqs": 615,
+    "total_illegal": 1349,
+    "illegal_seq_rate": 0.6613,
+    "illegal_per_seq": 1.451
   },
   "illegal_train_pred_sample": {
-    "illegal_start": 8,
-    "illegal_transition": 7045,
+    "illegal_start": 2,
+    "illegal_transition": 7926,
     "total_seqs": 5173,
-    "illegal_seqs": 3304,
-    "total_illegal": 7053,
-    "illegal_seq_rate": 0.6387,
-    "illegal_per_seq": 1.363
+    "illegal_seqs": 3417,
+    "total_illegal": 7928,
+    "illegal_seq_rate": 0.6605,
+    "illegal_per_seq": 1.533
   },
   "notes": "BERT 序列标注（crf）训练过程"
 }

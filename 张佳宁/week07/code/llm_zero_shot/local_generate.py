@@ -26,7 +26,8 @@
 import time
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from packaging.version import Version
+from transformers import AutoModelForCausalLM, AutoTokenizer, __version__ as transformers_version
 
 
 def resolve_torch_dtype(device: torch.device, dtype: str = "auto") -> torch.dtype:
@@ -41,15 +42,16 @@ def load_causal_lm(model_path: str, device: torch.device,
     """
     加载本地基座模型 + tokenizer。
 
-    transformers 5.x 注意：`torch_dtype=` 已废弃，要用 `dtype=`。
     离线课堂约定：只用本地已下载的权重，不联网下载（resolve_model_path 已保证路径存在）。
     """
     tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token_id = tokenizer.eos_token_id
     tokenizer.padding_side = "left"     # ← 生成必须左 padding（见模块头部第 1 条）
+    # 旧版 Transformers 需要 torch_dtype，新版使用 dtype。
+    dtype_arg = "torch_dtype" if Version(transformers_version) < Version("4.57") else "dtype"
     model = AutoModelForCausalLM.from_pretrained(
-        model_path, dtype=dtype, trust_remote_code=True)
+        model_path, trust_remote_code=True, **{dtype_arg: dtype})
     model = model.to(device).eval()
     return model, tokenizer
 

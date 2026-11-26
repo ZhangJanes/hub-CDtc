@@ -1,19 +1,17 @@
 {
   "method": "bert_linear_256",
   "argv": [
-    "bert/train.py",
+    "bert\\train.py",
     "--decoder",
     "linear",
-    "--max_len",
-    "256",
     "--epochs",
     "3",
-    "--run_name",
-    "bert_linear_256"
+    "--device",
+    "cuda"
   ],
   "args": {
     "decoder": "linear",
-    "bert_path": "pretrain_models/bert-base-chinese",
+    "bert_path": "D:\\1aSTUDY\\AI_Agent\\pretrain_models\\chinese-roberta-wwm-ext",
     "bert_layers": 0,
     "max_len": 256,
     "epochs": 3,
@@ -27,7 +25,7 @@
     "dropout": 0.1,
     "inner_val": 0.1,
     "hard_constraint": false,
-    "device": "",
+    "device": "cuda",
     "log_every": 50,
     "seed": 42,
     "run_name": "bert_linear_256",
@@ -35,79 +33,79 @@
     "data_dir": ""
   },
   "env": {
-    "python": "3.12.7",
-    "platform": "Windows-11-10.0.26200-SP0",
-    "time": "2026-11-18 16:56:48",
-    "torch": "2.6.0+cu126",
+    "python": "3.12.16",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "time": "2026-11-26 21:04:25",
+    "torch": "2.14.1+cu126",
     "cuda_available": true,
-    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
-    "transformers": "5.5.3"
+    "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+    "transformers": "4.55.0"
   },
   "params": 102382229,
   "log_every": 50,
   "epochs": [
     {
       "epoch": 1,
-      "train_loss": 1.338658,
-      "elapsed_s": 189.5,
+      "train_loss": 1.463239,
+      "elapsed_s": 45.1,
       "val": {
-        "inner_loss": 0.439391541812155,
-        "inner_span_f1": 0.3989140849568828,
-        "dev_span_f1_monitor": 0.41690701143709596
+        "inner_loss": 0.4765385058191087,
+        "inner_span_f1": 0.34691319335631465,
+        "dev_span_f1_monitor": 0.3599882548693355
       },
       "best_so_far": -1.0
     },
     {
       "epoch": 2,
-      "train_loss": 0.348197,
-      "elapsed_s": 219.0,
+      "train_loss": 0.367014,
+      "elapsed_s": 45.1,
       "val": {
-        "inner_loss": 0.26684346629513633,
-        "inner_span_f1": 0.6014633417948335,
-        "dev_span_f1_monitor": 0.6033633745238317
+        "inner_loss": 0.2741154813104206,
+        "inner_span_f1": 0.5713444264467678,
+        "dev_span_f1_monitor": 0.5833940276766205
       },
-      "best_so_far": 0.398914
+      "best_so_far": 0.346913
     },
     {
       "epoch": 3,
-      "train_loss": 0.249777,
-      "elapsed_s": 220.2,
+      "train_loss": 0.257845,
+      "elapsed_s": 44.9,
       "val": {
-        "inner_loss": 0.2426058765914705,
-        "inner_span_f1": 0.6311256311256311,
-        "dev_span_f1_monitor": 0.6431718061674009
+        "inner_loss": 0.24561158898803923,
+        "inner_span_f1": 0.6135412155334199,
+        "dev_span_f1_monitor": 0.6337737036038465
       },
-      "best_so_far": 0.601463
+      "best_so_far": 0.571344
     }
   ],
-  "total_elapsed_s": 636.7,
+  "total_elapsed_s": 135.9,
   "finished": true,
   "best_epoch": 3,
-  "best_inner_val_span_f1": 0.631126,
+  "best_inner_val_span_f1": 0.613541,
   "dev_metrics": {
-    "trigger": 0.8293,
-    "argument": 0.563,
-    "event_exact": 0.1564
+    "trigger": 0.8199,
+    "argument": 0.5519,
+    "event_exact": 0.1692
   },
-  "inference_latency_ms": 11.26,
-  "peak_gpu_mb": 1841.6,
+  "inference_latency_ms": 2.67,
+  "peak_gpu_mb": 1847.0,
   "illegal_dev": {
-    "illegal_start": 0,
-    "illegal_transition": 1520,
+    "illegal_start": 1,
+    "illegal_transition": 1628,
     "total_seqs": 930,
-    "illegal_seqs": 622,
-    "total_illegal": 1520,
-    "illegal_seq_rate": 0.6688,
-    "illegal_per_seq": 1.634
+    "illegal_seqs": 645,
+    "total_illegal": 1629,
+    "illegal_seq_rate": 0.6935,
+    "illegal_per_seq": 1.752
   },
   "illegal_train_pred_sample": {
-    "illegal_start": 10,
-    "illegal_transition": 8499,
+    "illegal_start": 4,
+    "illegal_transition": 9487,
     "total_seqs": 5173,
-    "illegal_seqs": 3487,
-    "total_illegal": 8509,
-    "illegal_seq_rate": 0.6741,
-    "illegal_per_seq": 1.645
+    "illegal_seqs": 3644,
+    "total_illegal": 9491,
+    "illegal_seq_rate": 0.7044,
+    "illegal_per_seq": 1.835
   },
   "notes": "BERT 序列标注（linear）训练过程"
 }
